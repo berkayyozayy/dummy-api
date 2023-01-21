@@ -10,7 +10,25 @@ import useAPI from "presentation/hooks/useAPI";
 function Posts() {
   const [posts, setPosts] = useState([]);
   const postsUrl = `${config.postsUrl}`;
-  const { data, error, loading } = useAPI(postsUrl);
+  const [page, setPage] = useState(1);
+
+  const { data, error, loading } = useAPI(postsUrl, page);
+
+  const handleScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop >=
+      document.documentElement.offsetHeight
+    ) {
+      setPage((prev) => prev + 1);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [page]);
 
   useEffect(() => {
     if (!loading && !error) {
