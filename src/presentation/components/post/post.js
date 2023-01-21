@@ -19,10 +19,12 @@ function Post({
   date,
   count,
   tags,
+  onClick,
 }) {
   return (
-    <PostWrapper>
+    <PostWrapper onClick={onClick}>
       <User
+        onClick={onClick}
         avatarUrl={avatarUrl}
         name={name}
         avatarAlt={altText}

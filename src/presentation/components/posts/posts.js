@@ -7,10 +7,14 @@ import Post from "presentation/components/post/post";
 import config from "config";
 import useAPI from "presentation/hooks/useAPI";
 
-function Posts() {
+import { useNavigate } from "react-router-dom";
+
+function Posts({ handleClick }) {
   const [posts, setPosts] = useState([]);
   const postsUrl = `${config.postsUrl}`;
   const [page, setPage] = useState(1);
+
+  const navigate = useNavigate();
 
   const { data, error, loading } = useAPI(postsUrl, page);
 
@@ -50,6 +54,7 @@ function Posts() {
         {posts.map((post) => {
           return (
             <Post
+              onClick={() => navigate(`user/${post.owner.id}`)}
               key={post.id}
               avatarUrl={post.owner.picture}
               imageUrl={post.image}

@@ -3,9 +3,9 @@ import Avatar from "presentation/components/avatar/avatar";
 import { Text } from "presentation/styles/global/global.styled";
 import { UserWrapper, UserName } from "./user.styled";
 
-function User({ avatarUrl, altText, name, lastname, title }) {
+function User({ avatarUrl, altText, name, lastname, title, onClick }) {
   return (
-    <UserWrapper>
+    <UserWrapper onClick={onClick}>
       <Avatar avatarUrl={avatarUrl} alt={altText} />
       <UserName>
         <Text>{title}</Text>
