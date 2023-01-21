@@ -5,12 +5,14 @@ import Error from "presentation/components/common/error/error";
 import LoadingSpinner from "presentation/components/common/loading/loading";
 import { UsersList, UserCard } from "./users.styled";
 import User from "presentation/components/user/user";
+import { useNavigate } from "react-router-dom";
 
 function Users() {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
   const usersUrl = `${config.usersUrl}`;
   const { data, error, loading } = useAPI(usersUrl, page);
+  const navigate = useNavigate();
 
   const handleScroll = () => {
     if (
@@ -48,6 +50,7 @@ function Users() {
         return (
           <UserCard key={user.id}>
             <User
+              onClick={() => navigate(`user/${user.id}`)}
               title={user.title}
               avatarUrl={user.picture}
               name={user.firstName}
