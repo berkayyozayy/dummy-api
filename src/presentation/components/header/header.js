@@ -11,12 +11,12 @@ function Header() {
       <NavLeft>
         <Main>
           <Link to="/">
-            <img src={home} width={40} />
+            <img src={home} width={40} alt="Home" />
           </Link>
         </Main>
         <UserList>
           <Link to="/users">
-            <img src={users} width={40} />
+            <img src={users} width={40} alt="Users" />
           </Link>
         </UserList>
       </NavLeft>

@@ -22,15 +22,15 @@ function Post({
 }) {
   return (
     <PostWrapper>
+      <User
+        avatarUrl={avatarUrl}
+        name={name}
+        avatarAlt={altText}
+        altText={name}
+        lastname={lastname}
+      />
       <PostImage src={imageUrl} alt={name}></PostImage>
       <PostContent>
-        <User
-          avatarUrl={avatarUrl}
-          name={name}
-          avatarAlt={altText}
-          altText={name}
-          lastname={lastname}
-        />
         <Description>{description}</Description>
         <Date>{date}</Date>
         <PostFooter count={count} tags={tags} />

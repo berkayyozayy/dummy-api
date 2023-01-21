@@ -5,6 +5,7 @@ import * as spacings from "presentation/styles/global/spacings.styled";
 const UserWrapper = styled.div({
   display: "flex",
   alignItems: "center",
+  padding: `${spacings.base}`,
 });
 
 const UserName = styled.p({
