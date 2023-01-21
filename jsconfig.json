@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "*": ["presentation/*", "components/*", "styles/global/*"]
+    }
+  },
+  "include": ["src", "node_modules"]
+}
