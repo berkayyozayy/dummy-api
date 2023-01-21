@@ -36,7 +36,7 @@ function Posts({ handleClick }) {
 
   useEffect(() => {
     if (!loading && !error) {
-      setPosts(data);
+      setPosts(data.data);
     }
   }, [data]);
 

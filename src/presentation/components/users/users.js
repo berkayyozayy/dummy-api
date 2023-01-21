@@ -32,7 +32,7 @@ function Users() {
 
   useEffect(() => {
     if (!loading && !error) {
-      setUsers(data);
+      setUsers(data.data);
     }
   }, [data]);
 
@@ -50,7 +50,7 @@ function Users() {
         return (
           <UserCard key={user.id}>
             <User
-              onClick={() => navigate(`user/${user.id}`)}
+              onClick={() => navigate(`/user/${user.id}`)}
               title={user.title}
               avatarUrl={user.picture}
               name={user.firstName}

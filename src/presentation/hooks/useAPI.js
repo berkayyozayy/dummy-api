@@ -19,7 +19,7 @@ const useAPI = (url, page) => {
           headers: headers,
         });
         const result = await response.json();
-        setData(result.data);
+        setData(result);
         setLoading(false);
       } catch (error) {
         setError(error);
