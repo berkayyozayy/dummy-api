@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-const PostsContent = styled.div({
+const PostsWrapper = styled.div({
   display: "flex",
   flexDirection: "column",
 });
 
-const PostsWrapper = styled.div({
+const PostsContent = styled.div({
   maxWidth: "1200px",
   display: "flex",
   margin: "0 auto",
