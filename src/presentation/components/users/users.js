@@ -8,9 +8,25 @@ import User from "presentation/components/user/user";
 
 function Users() {
   const [users, setUsers] = useState([]);
-
+  const [page, setPage] = useState(1);
   const usersUrl = `${config.usersUrl}`;
-  const { data, error, loading } = useAPI(usersUrl);
+  const { data, error, loading } = useAPI(usersUrl, page);
+
+  const handleScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop >=
+      document.documentElement.offsetHeight - 1
+    ) {
+      setPage((prev) => prev + 1);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [page]);
 
   useEffect(() => {
     if (!loading && !error) {
