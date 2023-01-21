@@ -11,6 +11,7 @@ import {
 
 function Post({
   avatarUrl,
+  imageUrl,
   altText,
   name,
   lastname,
@@ -21,7 +22,7 @@ function Post({
 }) {
   return (
     <PostWrapper>
-      <PostImage src={avatarUrl} alt={name}></PostImage>
+      <PostImage src={imageUrl} alt={name}></PostImage>
       <PostContent>
         <User
           avatarUrl={avatarUrl}
