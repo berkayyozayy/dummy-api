@@ -34,7 +34,7 @@ function Posts() {
     if (!loading && !error) {
       setPosts(data);
     }
-  }, [data, error, loading]);
+  }, [data]);
 
   if (error) {
     return <Error message={error.message} />;
