@@ -5,10 +5,14 @@ import Error from "presentation/components/common/error/error";
 import LoadingSpinner from "presentation/components/common/loading/loading";
 import { UsersList, UserCard } from "./users.styled";
 import User from "presentation/components/user/user";
+import SearchInput from "presentation/components/search-input/search-input";
+import { searchUsers } from "lib/searchUsers.js";
+
 import { useNavigate } from "react-router-dom";
 
 function Users() {
   const [users, setUsers] = useState([]);
+  const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const usersUrl = `${config.usersUrl}`;
   const { data, error, loading } = useAPI(usersUrl, page);
@@ -36,6 +40,15 @@ function Users() {
     }
   }, [data]);
 
+  console.log("====================================");
+  console.log(users);
+  console.log("====================================");
+
+  const onInputChange = (event) => {
+    event.preventDefault();
+    setSearch(event.target.value);
+  };
+
   if (error) {
     return <Error message={error.message} />;
   }
@@ -45,21 +58,24 @@ function Users() {
   }
 
   return (
-    <UsersList>
-      {users.map((user) => {
-        return (
-          <UserCard key={user.id}>
-            <User
-              onClick={() => navigate(`/user/${user.id}`)}
-              title={user.title}
-              avatarUrl={user.picture}
-              name={user.firstName}
-              lastname={user.lastName}
-            />
-          </UserCard>
-        );
-      })}
-    </UsersList>
+    <>
+      <SearchInput onChange={onInputChange} />
+      <UsersList>
+        {searchUsers(users, search).map((user) => {
+          return (
+            <UserCard key={user.id}>
+              <User
+                onClick={() => navigate(`/user/${user.id}`)}
+                title={user.title}
+                avatarUrl={user.picture}
+                name={user.firstName}
+                lastname={user.lastName}
+              />
+            </UserCard>
+          );
+        })}
+      </UsersList>{" "}
+    </>
   );
 }
 
