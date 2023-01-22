@@ -7,7 +7,6 @@ import { UsersList, UserCard } from "./users.styled";
 import User from "presentation/components/user/user";
 import SearchInput from "presentation/components/search-input/search-input";
 import { searchUsers } from "lib/searchUsers.js";
-
 import { useNavigate } from "react-router-dom";
 
 function Users() {
@@ -36,7 +35,7 @@ function Users() {
 
   useEffect(() => {
     if (!loading && !error) {
-      setUsers((prev) => [...prev, ...data.data]);
+      setUsers(data.data);
     }
   }, [data]);
 

@@ -3,7 +3,6 @@ import styled from "styled-components";
 const PostsWrapper = styled.div({
   display: "flex",
   flexDirection: "column",
-  cursor: "pointer",
 });
 
 const PostsContent = styled.div({

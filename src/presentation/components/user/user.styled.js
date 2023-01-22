@@ -6,6 +6,7 @@ const UserWrapper = styled.div({
   display: "flex",
   alignItems: "center",
   padding: `${spacings.base}`,
+  cursor: "pointer",
 });
 
 const UserName = styled.p({
