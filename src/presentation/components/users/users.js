@@ -36,13 +36,9 @@ function Users() {
 
   useEffect(() => {
     if (!loading && !error) {
-      setUsers(data.data);
+      setUsers((prev) => [...prev, ...data.data]);
     }
   }, [data]);
-
-  console.log("====================================");
-  console.log(users);
-  console.log("====================================");
 
   const onInputChange = (event) => {
     event.preventDefault();
