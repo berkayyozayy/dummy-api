@@ -9,8 +9,6 @@ import {
   UserProfileContainer,
   UserProfilePicture,
   UserProfileData,
-  Span,
-  Strong,
 } from "./user-profile.styled";
 import UserProfileContent from "presentation/components/user-profile/user-profile-content/user-profile-content";
 import Avatar from "presentation/components/avatar/avatar";
