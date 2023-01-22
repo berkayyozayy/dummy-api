@@ -11,7 +11,7 @@ const UsersList = styled.div({
 });
 
 const UserCard = styled.div({
-  width: "200px",
+  width: "300px",
   display: "flex",
   margin: `${spacings.base}`,
   alignItems: "center",

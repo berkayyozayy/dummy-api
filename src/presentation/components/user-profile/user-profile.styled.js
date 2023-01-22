@@ -26,10 +26,6 @@ const UserProfileData = styled.div({
   flexDirection: "column",
 });
 
-const UserProfileDataItem = styled.div({
-  marginBottom: `${spacings.base}`,
-});
-
 const Span = styled.span({
   color: `${colors.indigo}`,
   fontSize: "1.2em",

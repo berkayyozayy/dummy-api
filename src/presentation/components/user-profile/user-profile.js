@@ -47,7 +47,6 @@ function UserProfile() {
         />
         <hr />
       </UserProfilePicture>
-
       <UserProfileData>
         <UserProfileContent
           name={userProfile.firstName + "" + userProfile.lastName}
