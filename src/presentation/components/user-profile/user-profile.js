@@ -12,6 +12,7 @@ import {
   Span,
   Strong,
 } from "./user-profile.styled";
+import { formatDate } from "lib/formatDate.js";
 
 function UserProfile() {
   const [userProfile, setUserProfile] = useState({});
@@ -54,13 +55,13 @@ function UserProfile() {
           <Strong>Gender:</Strong> {userProfile.gender}
         </Span>
         <Span>
-          <Strong>Date of Birth:</Strong> {userProfile.dateOfBirth}
+          <Strong>Date of Birth:</Strong> {formatDate(userProfile.dateOfBirth)}
         </Span>
         <Span>
-          <Strong>Register Date:</Strong> {userProfile.registerDate}
+          <Strong>Register Date:</Strong> {formatDate(userProfile.registerDate)}
         </Span>
         <Span>
-          <Strong>Updated Date:</Strong> {userProfile.updatedDate}
+          <Strong>Updated Date:</Strong> {formatDate(userProfile.updatedDate)}
         </Span>
         <Span>
           <Strong>City:</Strong> {userProfile?.location?.city}

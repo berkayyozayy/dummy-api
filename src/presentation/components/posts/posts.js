@@ -4,12 +4,11 @@ import Error from "presentation/components/common/error/error";
 import LoadingSpinner from "presentation/components/common/loading/loading";
 import SearchInput from "presentation/components/search-input/search-input";
 import { searchPosts } from "lib/searchPosts.js";
-
 import Post from "presentation/components/post/post";
 import config from "config";
 import useAPI from "presentation/hooks/useAPI";
-
 import { useNavigate } from "react-router-dom";
+import { formatDate } from "lib/formatDate.js";
 
 function Posts({ handleClick }) {
   const [posts, setPosts] = useState([]);
@@ -39,7 +38,7 @@ function Posts({ handleClick }) {
 
   useEffect(() => {
     if (!loading && !error) {
-      setPosts((prev) => [...prev, ...data.data]);
+      setPosts(data.data);
     }
   }, [data]);
 
@@ -71,7 +70,7 @@ function Posts({ handleClick }) {
               name={post.owner.firstName}
               lastname={post.owner.lastName}
               description={post.text}
-              date={post.publishDate}
+              date={formatDate(post.publishDate)}
               count={post.likes}
               tags={post.tags.map((tag) => (
                 <span key={tag}>#{tag}</span>
