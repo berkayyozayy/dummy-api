@@ -10,6 +10,8 @@ const Input = styled.input({
   borderRadius: `${spacings.base}`,
   margin: "0 auto",
   width: "50%",
+  display: "flex",
+  marginTop: `${spacings.base}`,
 });
 
 export { Input };
