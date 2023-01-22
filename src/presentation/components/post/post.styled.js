@@ -30,7 +30,7 @@ const Description = styled.p({
 });
 
 const Date = styled.p({
-  fontSize: "12px",
+  fontSize: "1em",
 });
 
 const Footer = styled.div({
