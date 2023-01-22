@@ -7,6 +7,7 @@ const UserWrapper = styled.div({
   alignItems: "center",
   padding: `${spacings.base}`,
   cursor: "pointer",
+  width: "300px",
 });
 
 const UserName = styled.p({
