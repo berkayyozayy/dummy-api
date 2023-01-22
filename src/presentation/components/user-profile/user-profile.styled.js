@@ -9,9 +9,9 @@ const UserProfileContainer = styled.div({
   justifyContent: "center",
   padding: `${spacings.base}`,
   border: `1px solid ${colors.papayawhip}`,
-  maxWidth: "300px",
+  maxWidth: "400px",
   margin: "0 auto",
-
+  marginTop: `${spacings.base}`,
   boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
 });
 
