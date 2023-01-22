@@ -59,7 +59,7 @@ function UserProfile() {
           updatedDate={formatDate(userProfile.updatedDate)}
           city={formatText(userProfile?.location?.city)}
           country={userProfile?.location?.country}
-          state={userProfile?.location?.state}
+          state={formatText(userProfile?.location?.state)}
           street={formatText(userProfile?.location?.street)}
         />
       </UserProfileData>
