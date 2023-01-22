@@ -3,6 +3,7 @@ import { PostsWrapper, PostsContent } from "./posts.styled";
 import Error from "presentation/components/common/error/error";
 import LoadingSpinner from "presentation/components/common/loading/loading";
 import SearchInput from "presentation/components/search-input/search-input";
+import { searchPosts } from "lib/searchPosts.js";
 
 import Post from "presentation/components/post/post";
 import config from "config";
@@ -12,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 function Posts({ handleClick }) {
   const [posts, setPosts] = useState([]);
+  const [search, setSearch] = useState("");
   const postsUrl = `${config.postsUrl}`;
   const [page, setPage] = useState(1);
 
@@ -41,6 +43,11 @@ function Posts({ handleClick }) {
     }
   }, [data]);
 
+  const onInputChange = (event) => {
+    event.preventDefault();
+    setSearch(event.target.value);
+  };
+
   if (error) {
     return <Error message={error.message} />;
   }
@@ -51,9 +58,9 @@ function Posts({ handleClick }) {
 
   return (
     <PostsWrapper>
-      <SearchInput />
+      <SearchInput onChange={onInputChange} />
       <PostsContent>
-        {posts.map((post) => {
+        {searchPosts(posts, search).map((post) => {
           return (
             <Post
               onClick={() => navigate(`user/${post.owner.id}`)}
