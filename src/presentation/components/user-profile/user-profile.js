@@ -12,6 +12,8 @@ import {
   Span,
   Strong,
 } from "./user-profile.styled";
+import UserProfileContent from "presentation/components/user-profile/user-profile-content/user-profile-content";
+import Avatar from "presentation/components/avatar/avatar";
 import { formatDate } from "lib/formatDate.js";
 
 function UserProfile() {
@@ -37,44 +39,28 @@ function UserProfile() {
 
   return (
     <UserProfileContainer>
-      <UserProfilePicture
-        src={userProfile.picture}
-        alt={userProfile.firstName + " " + userProfile.lastName}
-      />
+      <UserProfilePicture>
+        <Avatar
+          avatarUrl={userProfile.picture}
+          alt={userProfile.firstName + " " + userProfile.lastName}
+        />
+        <hr />
+      </UserProfilePicture>
+
       <UserProfileData>
-        <Span>
-          <Strong>Name:</Strong> {userProfile.firstName} {userProfile.lastName}
-        </Span>
-        <Span>
-          <Strong>Email:</Strong> {userProfile.email}
-        </Span>
-        <Span>
-          <Strong>Phone:</Strong> {userProfile.phone}
-        </Span>
-        <Span>
-          <Strong>Gender:</Strong> {userProfile.gender}
-        </Span>
-        <Span>
-          <Strong>Date of Birth:</Strong> {formatDate(userProfile.dateOfBirth)}
-        </Span>
-        <Span>
-          <Strong>Register Date:</Strong> {formatDate(userProfile.registerDate)}
-        </Span>
-        <Span>
-          <Strong>Updated Date:</Strong> {formatDate(userProfile.updatedDate)}
-        </Span>
-        <Span>
-          <Strong>City:</Strong> {userProfile?.location?.city}
-        </Span>
-        <Span>
-          <Strong>Country:</Strong> {userProfile?.location?.country}
-        </Span>
-        <Span>
-          <Strong>State:</Strong> {userProfile?.location?.state}
-        </Span>
-        <Span>
-          <Strong>Street:</Strong> {userProfile?.location?.street}
-        </Span>
+        <UserProfileContent
+          name={userProfile.firstName + "" + userProfile.lastName}
+          email={userProfile.email}
+          phone={userProfile.phone}
+          gender={userProfile.gender}
+          dateOfBirth={formatDate(userProfile.dateOfBirth)}
+          registerDate={formatDate(userProfile.registerDate)}
+          updatedDate={formatDate(userProfile.updatedDate)}
+          city={userProfile?.location?.city}
+          country={userProfile?.location?.country}
+          state={userProfile?.location?.state}
+          street={userProfile?.location?.street}
+        />
       </UserProfileData>
     </UserProfileContainer>
   );
