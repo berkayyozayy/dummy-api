@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useAPI = (url, page) => {
+const useAPI = (url, page, limit) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -14,7 +14,7 @@ const useAPI = (url, page) => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch(url + `?page=${page}`, {
+        const response = await fetch(`${url}?limit=${limit}?page=${page}`, {
           method: "GET",
           headers: headers,
         });
@@ -27,7 +27,7 @@ const useAPI = (url, page) => {
       }
     };
     fetchData();
-  }, [url, page]);
+  }, [url, page, limit]);
 
   return { data, error, loading };
 };

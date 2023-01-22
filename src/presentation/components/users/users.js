@@ -13,8 +13,9 @@ function Users() {
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(10);
   const usersUrl = `${config.usersUrl}`;
-  const { data, error, loading } = useAPI(usersUrl, page);
+  const { data, error, loading } = useAPI(usersUrl, page, limit);
   const navigate = useNavigate();
 
   const handleScroll = () => {
@@ -23,6 +24,7 @@ function Users() {
       document.documentElement.offsetHeight - 1
     ) {
       setPage((prev) => prev + 1);
+      setLimit((prev) => prev + 10);
     }
   };
 

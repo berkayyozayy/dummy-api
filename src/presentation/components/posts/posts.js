@@ -16,10 +16,11 @@ function Posts({ handleClick }) {
   const [search, setSearch] = useState("");
   const postsUrl = `${config.postsUrl}`;
   const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(10);
 
   const navigate = useNavigate();
 
-  const { data, error, loading } = useAPI(postsUrl, page);
+  const { data, error, loading } = useAPI(postsUrl, page, limit);
 
   const handleScroll = () => {
     if (
@@ -27,6 +28,7 @@ function Posts({ handleClick }) {
       document.documentElement.offsetHeight - 1
     ) {
       setPage((prev) => prev + 1);
+      setLimit((prev) => prev + 10);
     }
   };
 
