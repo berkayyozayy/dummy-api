@@ -17,6 +17,7 @@ const UserCard = styled.div({
   alignItems: "center",
   padding: `${spacings.base}`,
   boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+  cursor: "pointer",
 });
 
 export { UserCard, UsersList };
