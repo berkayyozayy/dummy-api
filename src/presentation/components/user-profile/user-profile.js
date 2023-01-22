@@ -15,6 +15,7 @@ import {
 import UserProfileContent from "presentation/components/user-profile/user-profile-content/user-profile-content";
 import Avatar from "presentation/components/avatar/avatar";
 import { formatDate } from "lib/formatDate.js";
+import { formatText } from "lib/formatText.js";
 
 function UserProfile() {
   const [userProfile, setUserProfile] = useState({});
@@ -56,10 +57,10 @@ function UserProfile() {
           dateOfBirth={formatDate(userProfile.dateOfBirth)}
           registerDate={formatDate(userProfile.registerDate)}
           updatedDate={formatDate(userProfile.updatedDate)}
-          city={userProfile?.location?.city}
+          city={formatText(userProfile?.location?.city)}
           country={userProfile?.location?.country}
           state={userProfile?.location?.state}
-          street={userProfile?.location?.street}
+          street={formatText(userProfile?.location?.street)}
         />
       </UserProfileData>
     </UserProfileContainer>

@@ -9,6 +9,7 @@ import config from "config";
 import useAPI from "presentation/hooks/useAPI";
 import { useNavigate } from "react-router-dom";
 import { formatDate } from "lib/formatDate.js";
+import { formatText } from "lib/formatText.js";
 
 function Posts({ handleClick }) {
   const [posts, setPosts] = useState([]);
@@ -67,7 +68,7 @@ function Posts({ handleClick }) {
               avatarUrl={post.owner.picture}
               imageUrl={post.image}
               altText={post.text}
-              name={post.owner.firstName}
+              name={formatText(post.owner.firstName)}
               lastname={post.owner.lastName}
               description={post.text}
               date={formatDate(post.publishDate)}
