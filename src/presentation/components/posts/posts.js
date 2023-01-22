@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { PostsWrapper, PostsContent } from "./posts.styled";
 import Error from "presentation/components/common/error/error";
 import LoadingSpinner from "presentation/components/common/loading/loading";
+import SearchInput from "presentation/components/search-input/search-input";
 
 import Post from "presentation/components/post/post";
 import config from "config";
@@ -50,6 +51,7 @@ function Posts({ handleClick }) {
 
   return (
     <PostsWrapper>
+      <SearchInput />
       <PostsContent>
         {posts.map((post) => {
           return (
