@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Dummy Posts & Users
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project lists posts, users and users profile from https://dummyapi.io/.
 
-## Available Scripts
+## Built with
 
-In the project directory, you can run:
+- ReactJS
+- React hooks
+- React-router-dom
+- Styled Components
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Re-usable components
+- Custom hook
+- Infinite Scroll
+- Responsive design
+- CSS in JS
+- Search Input (Posts & Users)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Scenario
 
-### `npm test`
+1. The user sees the posts on the home page.
+2. The user can do infinite scroll to the posts on the homepage.
+3. When clicking on any post, the user can go to the user profile and see the user detail.
+4. The user can access the users list with the users icon in the header if he/she wants.
+5. The user can do infinite scroll to the users on the users page.
+6. When clicking on any user, the user can go to the user profile and see the user details as on the home page.
+7. User can search posts or users anywhere
+8. Location information has been converted with UTF-8 so that the user does not encounter character problems.
+9. Dates are converted to YYYYY--MM-DD format.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Project Structure
 
-### `npm run build`
+    .
+    ├── src                     # Source files
+        ├── config              # API endpoints
+        ├── lib                 # Includes libs(searchPosts, searchUsers, formatDate, formatText)
+        ├── presentation        # This folder contains the visual part of the application, with its pages, components, hooks, assets and styling.
+            ├── components      # Tools and utilities
+            ├── hooks           # Includes custom API hook to fetch data
+            └── icons           # Includes svg icons
+            ├── routes          # Includes app routes
+            ├── styles          # Includes global spacings, colors.
+            ├──index.js         # Collecting application
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Development Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node ^14.0
+- npm ^6.2.0
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Usage
 
-### `npm run eject`
+```sh
+npm install
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### .env file
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This file contains environment variables that are used by the application. It should be created in the root directory of the project. Copy the contents of the `.env.example` file into your own .env file and paste your own `app-id` variable.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The following variables should be set in the .env file:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `REACT_APP_API_KEY`: app-id
